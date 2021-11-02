@@ -52,6 +52,7 @@ $dark-pink: #ff054e;
   @include responsive ($xs) {
     display: block;
     margin-top: 5vh;
+    //padding-top: 10vh;
   }
 
   // will display image/video and content in single row for any higher res of screen
