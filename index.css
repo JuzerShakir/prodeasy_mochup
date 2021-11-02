@@ -184,8 +184,7 @@ hr {
   @media (min-width: 16em) {
     #content-3 #discover {
       display: block;
-      margin-top: 5vh;
-      padding-top: 10vh; } }
+      padding-top: 8vh; } }
   @media (min-width: 28em) {
     #content-3 #discover {
       display: flex;
@@ -234,8 +233,7 @@ hr {
   @media (min-width: 16em) {
     #content-3 #validate {
       display: block;
-      margin-top: 5vh;
-      padding-top: 10vh; } }
+      padding-top: 8vh; } }
   @media (min-width: 28em) {
     #content-3 #validate {
       display: flex;
@@ -284,8 +282,7 @@ hr {
   @media (min-width: 16em) {
     #content-3 #plan {
       display: block;
-      margin-top: 5vh;
-      padding-top: 10vh; } }
+      padding-top: 8vh; } }
   @media (min-width: 28em) {
     #content-3 #plan {
       display: flex;
@@ -334,8 +331,7 @@ hr {
   @media (min-width: 16em) {
     #content-3 #confidence {
       display: block;
-      margin-top: 5vh;
-      padding-top: 10vh; } }
+      padding-top: 8vh; } }
   @media (min-width: 28em) {
     #content-3 #confidence {
       display: flex;
