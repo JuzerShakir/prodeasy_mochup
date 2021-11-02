@@ -1,0 +1,553 @@
+// following are variables defined
+$xl: 87.5em; // 4k and hi-res desktop
+$lg: 60em; // 1080 and hi-res laptops
+$med: 40em; // hi-res tablets and low-res laptops
+$sm: 28em; // mobile and low-res tablets
+$xs: 16em; // mobile only
+$pink: #ff3b72;
+$light-pink: #ffd9e3;
+$very-light-pink: #f0e6e9;
+$dark-pink: #ff054e;
+
+
+// have used Titillium Web font, imported from google fonts
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,600;0,700;1,300;1,400&display=swap');
+
+
+// mixin function for displaying a responsive website
+@mixin responsive ($width)  {
+  // if device width is greater than $width then block elements will be applied
+  @media (min-width: + $width)  {
+    @content;
+  }
+}
+
+@mixin hr {
+  width: 70%;
+  height: 2px;
+  color: $very-light-pink;
+}
+
+@mixin h2 {
+  //border: 2px solid;
+  color: $dark-pink;
+  margin-top: 10vh;
+  margin-bottom: 3vh;
+  line-height: 1.1;
+  text-align: center;
+}
+
+@mixin h4 {
+  //border: 2px solid;
+  color: black;
+  line-height: 1;
+  text-align: center;
+  font-size: 0.9em;
+  margin-top: 0vh;
+  margin-bottom: 1vh;
+}
+
+@mixin content-3-post {
+  // for mobile devices
+  @include responsive ($xs) {
+    display: block;
+    //margin-top: 5vh;
+  }
+
+  // will display image/video and content in single row for any higher res of screen
+  @include responsive ($sm) {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10vh;
+    padding-top: 10vh;
+  }
+
+  .text {
+    padding-right: 2vw;
+
+    h4 {
+      @include h4;
+
+      @include responsive ($sm) {
+        text-align: left;
+      }
+    }
+
+    p {
+      margin: 3.5vh 0vw;
+      font-size: 0.7em;
+      text-align: center;
+
+      @include responsive ($sm) {
+        margin-top: 4vh;
+        text-align: left;
+      }
+    }
+
+    @include responsive( $sm ) {
+        display: inline;
+        width: 50%;
+      }
+    }
+
+  .photo  {
+    img {
+      // rounded corners
+      border-radius: 5%;
+      // all 4 sides with blur shadow
+      box-shadow: 0 0 10px 10px #ccc;
+
+      @include responsive ($xs) {
+        display: block;
+        width: 100%;
+      }
+
+      @include responsive( $sm ) {
+        display: inline;
+        max-width: 300px;
+        height: auto;
+      }
+
+      @include responsive( $med ) {
+        max-width: 400px;
+      }
+    }
+  }
+}
+
+//------------------//
+// following code which isnt included in mixin block applied to all types of screens
+
+
+* {
+  // allows to include padding and border of all elements total width and height
+  box-sizing: border-box;
+}
+
+body  {
+  // setting custom bg color
+  background-color: #fcf7f9;
+  // setting custom font for whole page
+  font-family: 'Titillium Web', sans-serif;
+
+  // smartphone devices
+  @include responsive ($xs) {
+    font-size: 1.4em;
+  }
+
+  @include responsive ($sm) {
+    font-size: 1.1em;
+  }
+
+  @include responsive ($med) {
+    font-size: 1.6em;
+  }
+  // desktop devices
+  @include responsive ($lg) {
+    font-size: 2.0em;
+  }
+
+}
+
+#homepage {
+  // top-bottom left-right, set relative to width and height of browser
+  margin: 0vh 10vw;
+}
+
+#header {
+  margin-top: 2vh;
+
+  // following will be apllied from high-end-mobile and low-res tabs to 4k res
+  @include responsive ($sm) {
+    // following helped to display 'header' child elements in single line
+    // for easy positioning of child element
+    display: flex;
+    // sets logo and signin link to left and right position respectively
+    justify-content: space-between;
+    // shows child elements in single line rather than multiline
+    flex-wrap: wrap;
+  }
+
+  img {
+    //border: 2px Solid;
+    @include responsive( $xs ) {
+      display: block;
+      width: 100%;
+    }
+    @include responsive( $sm ) {
+        display: inline;
+        width: 24%;
+    }
+
+    @include responsive( $med ) {
+        width: 25.5%;
+    }
+
+    @include responsive( $lg ) {
+        width: 27%;
+    }
+  }
+
+  a  {
+    //border: 2px Solid;
+    // curves the borders of the border
+    border-radius: 12px;
+    // so that clickable link is reduced in terms of width such that 'sign in' is centered with browser width
+    margin: 0% 30%;
+    text-align: center;
+    color: black;
+    background-color: $very-light-pink;
+    text-decoration: none;
+    font-weight: 700;
+
+    &:hover {
+      background-color: $light-pink;
+      color: $pink;
+    }
+
+    @include responsive( $xs ) {
+      display: block;
+    }
+
+    @include responsive( $sm ) {
+      display: inline;
+      margin: 0% 0%;
+      padding: 0vh 1vw;
+      text-align: right;
+    }
+  }
+}
+
+hr {
+  @include hr;
+}
+
+#content-1 {
+  text-align: center;
+  margin-bottom: 10vh;
+
+  h2 {
+    // importing above code block of h2 @mixin here..
+    @include h2;
+  }
+  p {
+    //border: 2px solid;
+    // will display font 0.8 times that of what default is defined for different device sizes
+    font-size: 0.8em;
+  }
+  p.launch {
+    margin-top: 5vh;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 1em;
+  }
+}
+
+#content-2  {
+  h2 {
+    @include h2;
+  }
+
+  #values {
+    font-size: 0.8em;
+    // will display ul elements in block for mobile devices
+    @include responsive( $xs ) {
+      display: block;
+      // aligns ul elements well in center along with bullet under h2
+      margin-left: 3.5vw;
+    }
+
+    // following will be apllied from high-end-mobile and low-res tabs to 4k res
+    @include responsive ($sm) {
+      display: flex;
+      justify-content: space-between;
+      //removes unecessory margins of ul elements
+      margin: 0vh 0vw;
+    }
+
+    ul  {
+      li {
+        // a space between each element in ul
+        padding-bottom: 3vh;
+      }
+    }
+
+    #founder-value  {
+      ul {
+        //border: 2px solid;
+        @include responsive ($xs) {
+          // no margins at the end of ul
+          margin-bottom: 0vh;
+        }
+
+        @include responsive ($sm) {
+          // avoids overlap of corresponding li elements of ul tags
+          margin-right: 2vw;
+          // sets top margin of ul to separate from h2 tag
+          margin-top: 4vh;
+        }
+      }
+    }
+    #manager-value  {
+      ul {
+        /border: 2px solid;
+        @include responsive ($xs) {
+          // show no margin at top as whole list will be shown as single ul
+          margin-top: 0vh;
+        }
+
+        @include responsive ($sm) {
+          // sets top margin of ul to separate from h2 tag
+          margin-top: 4vh;
+        }
+      }
+    }
+  }
+}
+
+#content-3  {
+  h2 {
+    @include h2;
+  }
+
+  margin-bottom: 10vh;
+
+  #build  {
+    // for mobile devices
+    @include responsive ($xs) {
+      display: block;
+      margin-top: 5vh;
+      }
+
+    // will display image/video and content in single row for any higher res of screen
+    @include responsive ($sm) {
+      display: flex;
+      justify-content: space-between;
+      // space between h2 tag and content
+      margin-top: 8vh;
+      }
+
+    .text {
+      // space between text and video
+      padding-right: 2vw;
+
+      h4 {
+        // alignment is center for h4 tag for mobile device
+        @include h4;
+        // while for larger screen sizes text is left
+        @include responsive ($sm) {
+          text-align: left;
+        }
+      }
+
+      p {
+        // sapce between text and heading
+        margin: 3.5vh 0vw;
+        font-size: 0.7em;
+        // text center for mobile devices
+        text-align: center;
+
+        // for larger devices
+        @include responsive ($sm) {
+          margin-top: 4vh;
+          text-align: left;
+        }
+      }
+
+      // will show text and video in single row for larger screen devices.
+      @include responsive( $sm ) {
+          display: inline;
+          width: 50%;
+      }
+    }
+
+    .video  {
+      a {
+        img {
+          // rounded corners
+          border-radius: 5%;
+          // all 4 sides with blur shadow
+          box-shadow: 0 0 10px 10px #ccc;
+
+          // display block for mobile
+          @include responsive ($xs) {
+            display: block;
+            width: 100%;
+          }
+
+          // display in a single row for larger screen
+          @include responsive( $sm ) {
+            display: inline;
+            max-width: 270px;
+            height: auto;
+            // aligns the video view in middle
+            vertical-align: middle;
+          }
+
+          @include responsive( $med ) {
+            // custom widths for larger image res
+            max-width: 370px;
+          }
+
+          @include responsive( $lg ) {
+            max-width: 600px;
+          }
+
+         @include responsive( $xl ) {
+            max-width: 800px;
+          }
+        }
+      }
+    }
+  }
+
+  #discover  {
+    // calling mixin to avoid code duplication for all 'how to' content
+    @include content-3-post;
+  }
+
+  #validate  {
+    @include content-3-post;
+  }
+
+  #plan  {
+    @include content-3-post;
+  }
+
+  #confidence  {
+    @include content-3-post;
+  }
+}
+
+#start-now {
+  // universal styling for all devices
+  background-color: $dark-pink;
+  border-radius: 25px 25px 0px 0px;
+  box-shadow: 0 0 5px 5px #ccc;
+  text-align: center;
+  color: white;
+  // inner space
+  padding-top: 3.5vh;
+  padding-bottom: 0vh;
+
+  //space between previous hr to this
+  margin: 10vh 0vw;
+
+  // universal
+  h5  {
+    margin: 0vh 0vw;
+    font-size: 0.9em;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 0.6em;
+    margin: 2vh 0vw;
+  }
+
+  #options  {
+    a {
+      // universal
+      padding: 0vh 2.5vw;
+      font-size: 0.7em;
+      font-weight: 700;
+      background-color: $light-pink;
+      color: black;
+      text-decoration: none;
+      text-align: center;
+
+      &:hover {
+        background-color: black;
+        color: white;
+        font-weight: 700;
+      }
+
+      @include responsive ($xs )  {
+        // displays link with 100% of width, one link in one row
+        display: block;
+        // to distance between both links
+        margin-bottom: 1.3vh;
+      }
+
+      @include responsive ($sm) {
+        // shows both link side by side
+        display: inline;
+        margin-bottom: 0vh;
+        border-radius: 25px 25px 0px 0px;
+      }
+    }
+  }
+}
+
+
+#footer {
+  //flex-wrap: wrap;
+  #social {
+    // displays all social links in 1 row
+    display: flex;
+    justify-content: space-between;
+    // takes full screen width
+    width: 100%;
+    // aligns icon in center in their box
+    text-align: center;
+    background-color: $very-light-pink;
+    border-radius: 25px;
+    a {
+      img {
+        display: inline;
+        width:70%;
+        // aligns icons vertically in middle
+        vertical-align: middle;
+      }
+    }
+  }
+
+  #legal  {
+    // universal
+    // display both links side by side
+    display: flex;
+    justify-content: space-between;
+    // space between icons
+    margin-top: 3vh;
+    margin-bottom: 0vh;
+
+    a {
+      // only for mobile, setting margin for links
+      margin: 0vh 0vw;
+      // universal
+      color:black;
+      text-decoration: none;
+
+      &:hover {
+        color: $pink;
+      }
+
+      // custom margin for larger screens
+      @include responsive ($sm) {
+        margin: 0vh 8vw;
+      }
+
+      @include responsive ($med) {
+        margin: 0vh 10vw;
+      }
+
+      // universal
+      h5 {
+        margin-top: 0vh;
+        font-size: 0.7em;
+        display: inline;
+        width: 100%;
+      }
+    }
+  }
+
+  #end {
+    margin-top: 3vh;
+    p {
+      text-align: center;
+      font-weight: 200;
+      font-style: italic;
+      font-size: 0.1em;
+    }
+  }
+}
