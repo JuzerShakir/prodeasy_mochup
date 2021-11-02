@@ -290,7 +290,7 @@ hr {
     }
     #manager-value  {
       ul {
-        /border: 2px solid;
+        //border: 2px solid;
         @include responsive ($xs) {
           // show no margin at top as whole list will be shown as single ul
           margin-top: 0vh;
@@ -545,9 +545,19 @@ hr {
     margin-top: 3vh;
     p {
       text-align: center;
-      font-weight: 200;
+      font-weight: 300;
       font-style: italic;
-      font-size: 0.1em;
+      font-size: 0.5em;
+      a {
+        color: #DC143C;
+        text-decoration: none;
+        :hover  {
+          color:#DC143C;
+        }
+        :visited  {
+          color:#DC143C;
+        }
+      }
     }
   }
 }

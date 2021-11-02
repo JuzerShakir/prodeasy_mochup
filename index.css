@@ -183,8 +183,7 @@ hr {
         max-width: 800px; } }
   @media (min-width: 16em) {
     #content-3 #discover {
-      display: block;
-      margin-top: 5vh; } }
+      display: block; } }
   @media (min-width: 28em) {
     #content-3 #discover {
       display: flex;
@@ -232,8 +231,7 @@ hr {
         max-width: 400px; } }
   @media (min-width: 16em) {
     #content-3 #validate {
-      display: block;
-      margin-top: 5vh; } }
+      display: block; } }
   @media (min-width: 28em) {
     #content-3 #validate {
       display: flex;
@@ -281,8 +279,7 @@ hr {
         max-width: 400px; } }
   @media (min-width: 16em) {
     #content-3 #plan {
-      display: block;
-      margin-top: 5vh; } }
+      display: block; } }
   @media (min-width: 28em) {
     #content-3 #plan {
       display: flex;
@@ -330,8 +327,7 @@ hr {
         max-width: 400px; } }
   @media (min-width: 16em) {
     #content-3 #confidence {
-      display: block;
-      margin-top: 5vh; } }
+      display: block; } }
   @media (min-width: 28em) {
     #content-3 #confidence {
       display: flex;
@@ -453,8 +449,15 @@ hr {
   margin-top: 3vh; }
   #footer #end p {
     text-align: center;
-    font-weight: 200;
+    font-weight: 300;
     font-style: italic;
-    font-size: 0.1em; }
+    font-size: 0.5em; }
+    #footer #end p a {
+      color: #DC143C;
+      text-decoration: none; }
+      #footer #end p a :hover {
+        color: #DC143C; }
+      #footer #end p a :visited {
+        color: #DC143C; }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=index.css.map */
